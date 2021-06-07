@@ -1,0 +1,11 @@
+@use 'abstracts' as a;
+
+*, *::before, *::after {
+	box-sizing: border-box;
+}
+
+
+
+body {
+	@include a.var(font-size, fs-def);
+}

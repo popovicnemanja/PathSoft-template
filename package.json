@@ -1,0 +1,12 @@
+{
+  "name": "pathsoft-template",
+  "version": "1.0.0",
+  "description": "template practice",
+  "main": "index.js",
+  "scripts": {},
+  "author": "Nemanja Popovic",
+  "license": "ISC",
+  "devDependencies": {
+    "sass": "^1.34.1"
+  }
+}
