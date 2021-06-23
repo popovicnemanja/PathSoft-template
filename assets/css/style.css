@@ -94,6 +94,20 @@
   height: 3.125rem;
 }
 
+.icon-more {
+  margin-left: 3.5rem;
+}
+
+.icon-chevron-down {
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  border-left: 1px solid #fff;
+}
+
 .icon::before {
   display: inline-block;
   font-style: normal;
@@ -109,29 +123,10 @@
   content: "";
 }
 
-.icon-more {
-  margin-left: 3.5rem;
-}
-
 .icon-more::before {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "";
-}
-
-.icon-search:hover,
-.icon-more:hover {
-  cursor: pointer;
-}
-
-.icon-chevron-down {
-  width: 5rem;
-  height: 5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.3rem;
-  border-left: 1px solid #fff;
 }
 
 .icon-chevron-down::before {
@@ -147,12 +142,17 @@
   transition: none;
 }
 
-/* .icon-facebook::before {
-  font-family: 'Font Awesome 5 Brands';
-  content: '\f09a';
+.icon-search:hover,
+.icon-more:hover {
+  cursor: pointer;
+  color: var(--clr-main);
 }
- */
+
 @media (min-width: 991px) {
+  .icon-more {
+    display: none;
+  }
+
   .icon-chevron-down {
     width: 1.8rem;
     height: 1.8rem;
@@ -161,10 +161,6 @@
 
   .icon-chevron-down::before {
     font-size: 1.2rem;
-  }
-
-  .icon-more {
-    display: none;
   }
 }
 :root {
@@ -191,7 +187,7 @@ ul {
 body {
   font-family: var(--ff-primary);
   font-size: var(--fs-n);
-  color: var(--clr-text) -primary;
+  color: var(--clr-text-primary);
 }
 
 header {
@@ -457,6 +453,10 @@ header {
     max-width: 100%;
   }
 
+  .nav__list-primary {
+    overflow: hidden;
+  }
+
   .nav__list-primary > * {
     margin-left: 0.5rem;
     display: inline-block;
@@ -465,10 +465,33 @@ header {
 
   .nav__link {
     padding: 0 1rem;
+    position: relative;
   }
 
   .nav__link-text {
     margin-right: 3px;
+    transition: 0.5s all;
+  }
+
+  .nav__link-text::before {
+    content: attr(data-title);
+    position: absolute;
+    top: -2rem;
+    left: 0;
+    color: var(--clr-main);
+    transition: 0.5s all;
+  }
+
+  .nav__link:hover > .nav__link-text {
+    transform: translateY(2.1rem);
+  }
+
+  .nav__link:hover > .nav__link-text::before {
+    top: -2rem;
+  }
+
+  .nav__link:hover > .icon-chevron-down::before {
+    transform: rotateX(180deg);
   }
 
   .nav__list-secondary {
